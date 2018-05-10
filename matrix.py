@@ -1,16 +1,30 @@
 import numpy as np
 
 #Input vector
-arr = [1, 2, 5]
+arr = [1, 2, 5, 8, 4, 6]
 
-#Initial Matrix
-mat = np.matrix([[1, 3, 4],[1, 7, 4],[1, 5, 8]])
+#intialize increasing variable
+increasing = [False, True, True, True, False, True, False]
 
-#modify each element in matrix 
-for x in range(3):
-    for y in range(3):
-        mat[y, x]=mat[y, x]**arr[x]
+#create list
+my_list = []
 
-#print the resultant matrix
+#calculate value of each element in matrix and append it to my_list
+for i in arr:
+    for x in range(6):
+        if(increasing[x]):
+            my_list.append(i**(x+1))
+        else:
+            my_list.append(i)
+
+#create numpy array from list
+arrt = np.array(my_list)
+
+#change shape for matrix
+arrt.shape=(6, 6)
+
+#create matrix from 2d array
+mat = np.matrix(arrt)
+
+#print resultant matrix
 print(mat)
-        
